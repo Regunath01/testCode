@@ -1,0 +1,220 @@
+.dashboard-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.stats-card {
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(25, 118, 210, 0.1);
+}
+
+.stats-card:hover::before {
+  opacity: 0.6;
+}
+
+.stats-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.stats-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: transform 0.3s ease;
+}
+
+.stats-card:hover .stats-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.trend-chip {
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  letter-spacing: 0.3px;
+}
+
+.trend-chip.up {
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+}
+
+.trend-chip.down {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.2);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-item {
+  padding: 20px;
+  border: 1px solid #e8eef3;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  position: relative;
+}
+
+.activity-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  border-radius: 12px 0 0 12px;
+  transition: background 0.3s ease;
+}
+
+.activity-item:hover {
+  border-color: #1976d2;
+  background-color: #f8fbff;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.1);
+  transform: translateX(4px);
+}
+
+.activity-item:hover::before {
+  background: linear-gradient(180deg, #1976d2, #42a5f5);
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activity-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.activity-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.status-chip {
+  font-weight: 600 !important;
+  text-transform: capitalize !important;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+  font-size: 0.8125rem !important;
+}
+
+.status-chip.success {
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
+  border: 1px solid #c8e6c9;
+}
+
+.status-chip.failed {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+  border: 1px solid #ffcdd2;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .activity-name {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-card-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 0;
+  }
+
+  .activity-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .activity-item {
+    padding: 16px;
+  }
+
+  .stats-card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .activity-item:hover {
+    transform: none;
+  }
+}
+
+.recharts-cartesian-axis-tick text {
+  fill: #64748b !important;
+  font-weight: 500 !important;
+}
+
+.recharts-tooltip {
+  outline: none !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.recharts-default-tooltip {
+  border-radius: 12px !important;
+}
+
+.recharts-surface {
+  border-radius: 8px;
+}
